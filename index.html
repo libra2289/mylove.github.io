@@ -13,27 +13,42 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="background.mp4" type="video/mp4" />
+    </video>
+    <div class="bg-overlay" aria-hidden="true"></div>
+
     <div class="glow glow-pink" aria-hidden="true"></div>
     <div class="glow glow-violet" aria-hidden="true"></div>
     <div class="side-line side-line-left" aria-hidden="true"></div>
     <div class="side-line side-line-right" aria-hidden="true"></div>
 
     <main class="page">
-      <section class="photos" aria-label="Фотографии">
-        <figure class="photo-slot">
+      <section class="photos" aria-label="Фотографии" id="photos">
+        <figure class="photo-slot" data-index="0">
           <img src="photo1.jpg" alt="" loading="lazy" />
         </figure>
-        <figure class="photo-slot">
+        <figure class="photo-slot" data-index="1">
           <img src="photo2.jpg" alt="" loading="lazy" />
         </figure>
-        <figure class="photo-slot">
+        <figure class="photo-slot" data-index="2">
           <img src="photo3.jpg" alt="" loading="lazy" />
         </figure>
-        <figure class="photo-slot"></figure>
-        <figure class="photo-slot"></figure>
-        <figure class="photo-slot"></figure>
-        <figure class="photo-slot"></figure>
-        <figure class="photo-slot"></figure>
+        <figure class="photo-slot" data-index="3">
+          <img src="photo4.jpg" alt="" loading="lazy" />
+        </figure>
+        <figure class="photo-slot" data-index="4">
+          <img src="photo5.jpg" alt="" loading="lazy" />
+        </figure>
+        <figure class="photo-slot" data-index="5">
+          <img src="photo6.jpg" alt="" loading="lazy" />
+        </figure>
+        <figure class="photo-slot" data-index="6">
+          <img src="photo7.jpg" alt="" loading="lazy" />
+        </figure>
+        <figure class="photo-slot" data-index="7">
+          <img src="photo8.jpg" alt="" loading="lazy" />
+        </figure>
         <figure class="photo-slot"></figure>
         <figure class="photo-slot"></figure>
       </section>
@@ -82,24 +97,56 @@
         <h2 id="songs-title">Наши песни</h2>
         <div class="songs-list">
           <div class="song-card">
-            <p class="song-title">Название песни</p>
-            <audio controls src="song1.mp3"></audio>
+            <button class="play-btn" type="button" aria-label="Воспроизвести">
+              <span class="icon-play">►</span>
+              <span class="icon-pause">❚❚</span>
+            </button>
+            <div class="song-info">
+              <p class="song-title">Название песни</p>
+              <div class="waveform" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <audio src="song1.mp3" preload="none"></audio>
           </div>
           <div class="song-card">
-            <p class="song-title">Название песни</p>
-            <audio controls src="song2.mp3"></audio>
+            <button class="play-btn" type="button" aria-label="Воспроизвести">
+              <span class="icon-play">►</span>
+              <span class="icon-pause">❚❚</span>
+            </button>
+            <div class="song-info">
+              <p class="song-title">Название песни</p>
+              <div class="waveform" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <audio src="song2.mp3" preload="none"></audio>
           </div>
           <div class="song-card">
-            <p class="song-title">Название песни</p>
-            <audio controls src="song3.mp3"></audio>
+            <button class="play-btn" type="button" aria-label="Воспроизвести">
+              <span class="icon-play">►</span>
+              <span class="icon-pause">❚❚</span>
+            </button>
+            <div class="song-info">
+              <p class="song-title">Название песни</p>
+              <div class="waveform" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <audio src="song3.mp3" preload="none"></audio>
           </div>
           <div class="song-card">
-            <p class="song-title">Название песни</p>
-            <audio controls src="song4.mp3"></audio>
-          </div>
-          <div class="song-card">
-            <p class="song-title">Название песни</p>
-            <audio controls src="song5.mp3"></audio>
+            <button class="play-btn" type="button" aria-label="Воспроизвести">
+              <span class="icon-play">►</span>
+              <span class="icon-pause">❚❚</span>
+            </button>
+            <div class="song-info">
+              <p class="song-title">Название песни</p>
+              <div class="waveform" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <audio src="song4.mp3" preload="none"></audio>
           </div>
         </div>
       </section>
@@ -109,23 +156,43 @@
         <div class="games-list">
           <div class="game-card">
             <h3>Brawl Stars</h3>
-            <figure class="photo-slot game-photo"></figure>
-          </div>
-          <div class="game-card">
-            <h3>Minecraft</h3>
-            <figure class="photo-slot game-photo"></figure>
-          </div>
-          <div class="game-card">
-            <h3>It Takes Two</h3>
-            <figure class="photo-slot game-photo"></figure>
+            <figure class="photo-slot game-photo">
+              <img src="game-brawl.jpg" alt="Brawl Stars" loading="lazy" />
+            </figure>
           </div>
           <div class="game-card">
             <h3>Dota 2</h3>
-            <figure class="photo-slot game-photo"></figure>
+            <figure class="photo-slot game-photo">
+              <img src="game-dota.webp" alt="Dota 2" loading="lazy" />
+            </figure>
+          </div>
+          <div class="game-card">
+            <h3>It Takes Two</h3>
+            <figure class="photo-slot game-photo">
+              <img src="game-ittakestwo.jpg" alt="It Takes Two" loading="lazy" />
+            </figure>
+          </div>
+          <div class="game-card">
+            <h3>Roblox</h3>
+            <figure class="photo-slot game-photo">
+              <img src="game-roblox.jpg" alt="Roblox" loading="lazy" />
+            </figure>
           </div>
         </div>
       </section>
+
+      <section class="reveal" aria-labelledby="reveal-title">
+        <button class="reveal-btn" id="revealBtn" type="button">Нажми</button>
+        <p class="reveal-message" id="revealMessage">Ты самая красивая и лучшая девушка</p>
+      </section>
     </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">✕</button>
+      <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Предыдущее фото">‹</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+      <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Следующее фото">›</button>
+    </div>
 
     <script src="script.js"></script>
   </body>

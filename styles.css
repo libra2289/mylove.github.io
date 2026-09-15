@@ -5,6 +5,7 @@
   --violet-soft: #5a3478;
   --pink: #e7c4d4;
   --pink-soft: #f3dce6;
+  --pink-deep: #c23a72;
   --text: #f6eef3;
   --muted: #c4a8c0;
   --card: rgba(28, 14, 38, 0.78);
@@ -23,12 +24,29 @@ body {
 }
 
 body {
+  position: relative;
   font-family: Manrope, system-ui, sans-serif;
   color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background:
     radial-gradient(1200px 700px at 50% -10%, rgba(90, 52, 120, 0.45), transparent 60%),
-    linear-gradient(180deg, #1a0e28 0%, var(--bg) 38%, var(--bg-deep) 100%);
-  line-height: 1.5;
+    linear-gradient(180deg, rgba(26, 14, 40, 0.82) 0%, rgba(16, 8, 20, 0.86) 38%, rgba(8, 5, 12, 0.92) 100%);
 }
 
 .glow {
@@ -126,6 +144,10 @@ body {
   background: rgba(28, 14, 38, 0.45);
   overflow: hidden;
   scroll-snap-align: start;
+}
+
+.photos .photo-slot img {
+  cursor: pointer;
 }
 
 .photo-slot span {
@@ -284,6 +306,8 @@ h1 {
   font-size: 0.95rem;
 }
 
+/* ---------- Songs ---------- */
+
 .songs {
   margin-top: 72px;
 }
@@ -299,32 +323,110 @@ h1 {
 
 .songs-list {
   display: grid;
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .song-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 14px;
-  padding: 16px 20px;
-  background: var(--card);
-  border: 1px solid rgba(231, 196, 212, 0.14);
-  border-radius: 16px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(58, 29, 82, 0.4), rgba(16, 8, 20, 0.6));
+  box-shadow:
+    inset 0 1px 0 rgba(243, 220, 230, 0.14),
+    0 0 0 1px rgba(16, 8, 20, 0.45),
+    0 14px 30px rgba(0, 0, 0, 0.38);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.song-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(243, 220, 230, 0.18),
+    0 0 0 1px rgba(16, 8, 20, 0.5),
+    0 18px 36px rgba(0, 0, 0, 0.45);
+}
+
+.play-btn {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(231, 196, 212, 0.22), rgba(58, 29, 82, 0.5));
+  color: var(--pink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  box-shadow: inset 0 1px 0 rgba(243, 220, 230, 0.2), 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.play-btn .icon-pause {
+  display: none;
+}
+
+.song-card.playing .play-btn .icon-play {
+  display: none;
+}
+
+.song-card.playing .play-btn .icon-pause {
+  display: inline;
+}
+
+.song-info {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .song-title {
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--pink-soft);
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.song-card audio {
-  flex: 1 1 220px;
-  max-width: 320px;
-  height: 36px;
+.waveform {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 22px;
 }
+
+.waveform span {
+  flex: 0 0 3px;
+  width: 3px;
+  border-radius: 2px;
+  height: 6px;
+  background: linear-gradient(180deg, var(--pink), var(--violet-soft));
+  transition: height 0.2s ease;
+}
+
+.song-card.playing .waveform span {
+  animation: wave 0.9s ease-in-out infinite;
+}
+
+.song-card.playing .waveform span:nth-child(1) { animation-delay: 0s; }
+.song-card.playing .waveform span:nth-child(2) { animation-delay: 0.1s; }
+.song-card.playing .waveform span:nth-child(3) { animation-delay: 0.2s; }
+.song-card.playing .waveform span:nth-child(4) { animation-delay: 0.3s; }
+.song-card.playing .waveform span:nth-child(5) { animation-delay: 0.2s; }
+.song-card.playing .waveform span:nth-child(6) { animation-delay: 0.1s; }
+.song-card.playing .waveform span:nth-child(7) { animation-delay: 0s; }
+
+@keyframes wave {
+  0%, 100% { height: 6px; }
+  50% { height: 22px; }
+}
+
+/* ---------- Games ---------- */
 
 .games {
   margin-top: 72px;
@@ -341,12 +443,25 @@ h1 {
 
 .games-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .game-card {
   text-align: center;
+  padding: 20px 16px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(58, 29, 82, 0.35), rgba(16, 8, 20, 0.55));
+  box-shadow:
+    inset 0 1px 0 rgba(243, 220, 230, 0.14),
+    0 0 0 1px rgba(16, 8, 20, 0.45),
+    0 16px 34px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
 }
 
 .game-card h3 {
@@ -354,7 +469,7 @@ h1 {
   font-weight: 600;
   font-size: 1.25rem;
   color: var(--pink-soft);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .game-photo {
@@ -362,6 +477,128 @@ h1 {
   height: 150px;
   flex: none;
   margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+
+.game-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Reveal button ---------- */
+
+.reveal {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.reveal-btn {
+  padding: 16px 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(194, 58, 114, 0.6);
+  background: linear-gradient(180deg, #d63384, var(--pink-deep));
+  color: #fff;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 14px 30px rgba(194, 58, 114, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reveal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 18px 36px rgba(194, 58, 114, 0.45);
+}
+
+.reveal-message {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.6rem;
+  color: var(--pink-deep);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  max-width: 480px;
+}
+
+.reveal-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Lightbox ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 5, 12, 0.92);
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: min(92vw, 900px);
+  max-height: 86vh;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(28, 14, 38, 0.7);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(28, 14, 38, 0.7);
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
 }
 
 @media (max-width: 720px) {
@@ -378,10 +615,29 @@ h1 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: 18px;
   }
+
+  .lightbox-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 420px) {
   .timer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .songs-list,
+  .games-list {
+    gap: 12px;
+  }
+
+  .song-card {
+    padding: 14px 14px;
+  }
+
+  .song-title {
+    font-size: 0.95rem;
   }
 }

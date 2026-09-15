@@ -111,6 +111,103 @@ function renderTimeline() {
     .join("");
 }
 
+function setupSongPlayers() {
+  const cards = document.querySelectorAll(".song-card");
+  let current = null;
+
+  cards.forEach((card) => {
+    const audio = card.querySelector("audio");
+    const button = card.querySelector(".play-btn");
+    if (!audio || !button) return;
+
+    button.addEventListener("click", () => {
+      if (audio.paused) {
+        if (current && current !== audio) {
+          current.pause();
+        }
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener("play", () => {
+      current = audio;
+      card.classList.add("playing");
+    });
+
+    audio.addEventListener("pause", () => {
+      card.classList.remove("playing");
+    });
+
+    audio.addEventListener("ended", () => {
+      card.classList.remove("playing");
+    });
+  });
+}
+
+function setupRevealButton() {
+  const button = document.getElementById("revealBtn");
+  const message = document.getElementById("revealMessage");
+  if (!button || !message) return;
+
+  button.addEventListener("click", () => {
+    message.classList.add("visible");
+  });
+}
+
+function setupLightbox() {
+  const photos = Array.from(document.querySelectorAll(".photos .photo-slot img"));
+  if (!photos.length) return;
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("lightboxClose");
+  const prevBtn = document.getElementById("lightboxPrev");
+  const nextBtn = document.getElementById("lightboxNext");
+
+  let currentIndex = 0;
+
+  function show(index) {
+    currentIndex = (index + photos.length) % photos.length;
+    lightboxImg.src = photos[currentIndex].src;
+    lightboxImg.alt = photos[currentIndex].alt || "";
+  }
+
+  function open(index) {
+    show(index);
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function close() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+
+  photos.forEach((img, index) => {
+    img.addEventListener("click", () => open(index));
+  });
+
+  closeBtn.addEventListener("click", close);
+  prevBtn.addEventListener("click", () => show(currentIndex - 1));
+  nextBtn.addEventListener("click", () => show(currentIndex + 1));
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) close();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (event.key === "Escape") close();
+    if (event.key === "ArrowLeft") show(currentIndex - 1);
+    if (event.key === "ArrowRight") show(currentIndex + 1);
+  });
+}
+
 renderTimeline();
 renderTimer();
 setInterval(renderTimer, 1000);
+setupSongPlayers();
+setupRevealButton();
+setupLightbox();
