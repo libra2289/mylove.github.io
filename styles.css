@@ -55,6 +55,36 @@ body {
   background: rgba(74, 32, 110, 0.4);
 }
 
+.side-line {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--line) 12%,
+    var(--line) 88%,
+    transparent 100%
+  );
+}
+
+.side-line-left {
+  left: 28px;
+}
+
+.side-line-right {
+  right: 28px;
+}
+
+@media (max-width: 720px) {
+  .side-line {
+    display: none;
+  }
+}
+
 .page {
   position: relative;
   z-index: 1;
@@ -252,6 +282,86 @@ h1 {
 .event p {
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.songs {
+  margin-top: 72px;
+}
+
+.songs h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--pink-soft);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.songs-list {
+  display: grid;
+  gap: 14px;
+}
+
+.song-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 1px solid rgba(231, 196, 212, 0.14);
+  border-radius: 16px;
+}
+
+.song-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--pink-soft);
+}
+
+.song-card audio {
+  flex: 1 1 220px;
+  max-width: 320px;
+  height: 36px;
+}
+
+.games {
+  margin-top: 72px;
+}
+
+.games h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--pink-soft);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.games-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+}
+
+.game-card {
+  text-align: center;
+}
+
+.game-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--pink-soft);
+  margin-bottom: 12px;
+}
+
+.game-photo {
+  width: 100%;
+  height: 150px;
+  flex: none;
+  margin: 0 auto;
 }
 
 @media (max-width: 720px) {
