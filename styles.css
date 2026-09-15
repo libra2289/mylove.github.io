@@ -45,8 +45,8 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1200px 700px at 50% -10%, rgba(90, 52, 120, 0.45), transparent 60%),
-    linear-gradient(180deg, rgba(26, 14, 40, 0.82) 0%, rgba(16, 8, 20, 0.86) 38%, rgba(8, 5, 12, 0.92) 100%);
+    radial-gradient(1200px 700px at 50% -10%, rgba(90, 52, 120, 0.32), transparent 60%),
+    linear-gradient(180deg, rgba(26, 14, 40, 0.55) 0%, rgba(16, 8, 20, 0.6) 38%, rgba(8, 5, 12, 0.68) 100%);
 }
 
 .glow {
