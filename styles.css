@@ -819,3 +819,114 @@ h1 {
     bottom: 14px;
   }
 }
+
+/* Миниатюры вокруг панели записок */
+.notes-photos {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.note-photo {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(231, 196, 212, 0.55);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  background: var(--bg-deep);
+}
+
+.note-photo-top-1 {
+  top: -20px;
+  left: 22%;
+  transform: rotate(-7deg);
+}
+
+.note-photo-top-2 {
+  top: -20px;
+  left: 62%;
+  transform: rotate(6deg);
+}
+
+.note-photo-left-1 {
+  top: 14%;
+  left: -20px;
+  transform: rotate(-5deg);
+}
+
+.note-photo-left-2 {
+  top: 44%;
+  left: -20px;
+  transform: rotate(4deg);
+}
+
+.note-photo-left-3 {
+  top: 74%;
+  left: -20px;
+  transform: rotate(-6deg);
+}
+
+.note-photo-right-1 {
+  top: 14%;
+  right: -20px;
+  transform: rotate(6deg);
+}
+
+.note-photo-right-2 {
+  top: 44%;
+  right: -20px;
+  transform: rotate(-4deg);
+}
+
+.note-photo-right-3 {
+  top: 74%;
+  right: -20px;
+  transform: rotate(5deg);
+}
+
+.notes-tagline {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--pink);
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .note-photo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .note-photo-top-1 {
+    left: 14%;
+    top: -14px;
+  }
+
+  .note-photo-top-2 {
+    left: 66%;
+    top: -14px;
+  }
+
+  .note-photo-left-1,
+  .note-photo-left-2,
+  .note-photo-left-3 {
+    left: -12px;
+  }
+
+  .note-photo-right-1,
+  .note-photo-right-2,
+  .note-photo-right-3 {
+    right: -12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .note-photo-left-2,
+  .note-photo-right-2 {
+    display: none;
+  }
+}
