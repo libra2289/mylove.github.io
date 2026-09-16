@@ -197,6 +197,21 @@
       <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Следующее фото">›</button>
     </div>
 
+    <button class="notes-toggle" id="notesToggle" type="button">
+      Нажми если вдруг тебе станет грустно, или будешь скучать
+    </button>
+
+    <div class="notes-panel" id="notesPanel" aria-hidden="true">
+      <div class="notes-panel-header">
+        <p>Напиши, что на душе — я обязательно прочитаю</p>
+        <button class="notes-close" id="notesClose" aria-label="Закрыть">✕</button>
+      </div>
+      <textarea class="notes-textarea" id="notesTextarea" placeholder="Напиши здесь..."></textarea>
+      <button class="notes-save" id="notesSave" type="button">Сохранить</button>
+      <div class="notes-list" id="notesList"></div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="notes.js"></script>
   </body>
 </html>

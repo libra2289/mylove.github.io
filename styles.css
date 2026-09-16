@@ -641,3 +641,181 @@ h1 {
     font-size: 0.95rem;
   }
 }
+
+/* Записки — вкладка "если станет грустно" */
+.notes-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 20;
+  max-width: 190px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(58, 29, 82, 0.6), rgba(16, 8, 20, 0.8));
+  color: var(--pink-soft);
+  font-family: Manrope, system-ui, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.notes-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.notes-panel {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 21;
+  width: min(340px, calc(100vw - 40px));
+  max-height: min(480px, calc(100vh - 40px));
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(28, 14, 38, 0.94), rgba(8, 5, 12, 0.97));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.notes-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.notes-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.notes-panel-header p {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  color: var(--pink-soft);
+}
+
+.notes-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px;
+  flex: none;
+}
+
+.notes-close:hover {
+  color: var(--pink);
+}
+
+.notes-textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  border-radius: 12px;
+  border: 1px solid rgba(231, 196, 212, 0.2);
+  background: rgba(16, 8, 20, 0.6);
+  color: var(--text);
+  font-family: Manrope, system-ui, sans-serif;
+  font-size: 0.9rem;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.notes-textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+
+.notes-save {
+  align-self: flex-end;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--pink);
+  background: transparent;
+  color: var(--pink-soft);
+  font-size: 0.82rem;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.notes-save:hover {
+  background: var(--pink);
+  color: var(--bg-deep);
+}
+
+.notes-list {
+  overflow-y: auto;
+  display: grid;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+.note-item {
+  background: rgba(58, 29, 82, 0.25);
+  border: 1px solid rgba(231, 196, 212, 0.12);
+  border-radius: 12px;
+  padding: 10px 34px 10px 12px;
+  position: relative;
+}
+
+.note-item time {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.note-item p {
+  font-size: 0.86rem;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.note-delete:hover {
+  color: var(--pink);
+}
+
+@media (max-width: 720px) {
+  .notes-toggle {
+    max-width: 150px;
+    font-size: 0.72rem;
+    left: 14px;
+    bottom: 14px;
+    padding: 12px 14px;
+  }
+
+  .notes-panel {
+    left: 14px;
+    bottom: 14px;
+  }
+}
