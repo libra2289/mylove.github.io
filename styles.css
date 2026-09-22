@@ -930,3 +930,127 @@ h1 {
     display: none;
   }
 }
+
+/* Вкладка с письмом */
+.letter-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 20;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(58, 29, 82, 0.6), rgba(16, 8, 20, 0.8));
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.letter-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+}
+
+.letter-toggle svg {
+  display: block;
+}
+
+.letter-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 5, 12, 0.72);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.letter-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.letter-content {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: min(600px, calc(100vh - 48px));
+  overflow-y: auto;
+  padding: 42px 34px;
+  border-radius: 6px;
+  background: #f4ecd8;
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 100% 32px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  transform: rotate(-0.6deg);
+}
+
+.letter-content p {
+  color: #1a1a1a;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.letter-content p:last-child {
+  margin-bottom: 0;
+}
+
+.letter-close {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  z-index: 31;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(246, 238, 243, 0.4);
+  background: rgba(16, 8, 20, 0.6);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+}
+
+.letter-panel.is-open .letter-close {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .letter-toggle {
+    width: 52px;
+    height: 52px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .letter-toggle svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .letter-content {
+    padding: 30px 22px;
+  }
+
+  .letter-content p {
+    font-size: 1.02rem;
+  }
+
+  .letter-close {
+    top: 16px;
+    right: 16px;
+  }
+}

@@ -222,7 +222,25 @@
       <div class="notes-list" id="notesList"></div>
     </div>
 
+    <button class="letter-toggle" id="letterToggle" type="button" aria-label="Открыть письмо">
+      <svg viewBox="0 0 64 64" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="14" width="56" height="38" rx="4" fill="#f4ecd8" stroke="#e7c4d4" stroke-width="2" />
+        <path d="M6 16 L32 38 L58 16" stroke="#c47f9a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="32" cy="33" r="6" fill="#e7c4d4" />
+        <path d="M29 33c0-2 1.6-3.4 3-2 1.4-1.4 3-0 3 2 0 2.2-3 4.2-3 4.2s-3-2-3-4.2z" fill="#c47f9a" />
+      </svg>
+    </button>
+
+    <div class="letter-panel" id="letterPanel" aria-hidden="true">
+      <button class="letter-close" id="letterClose" aria-label="Закрыть">✕</button>
+      <div class="letter-content">
+        <p>На самом деле мне очень больно от нашего общения в переписке, особенно на данный момент. Я стараюсь, чтоб было так же все хорошо, как и было, но я не могу это делать один, я не могу разделиться на части, делать что-то, зная, что в отношениях творится такой пиздец. Я боюсь тебя потерять, ты сама это знаешь. Мне хочется с тобой ходить в звонки, играть вместе, что-то смотреть. Я рад, что у тебя появились друзья с Сашей, но наши отношения все хуже и хуже, и я даже не знаю что делать — дело во мне, или что мне надо сделать, чтоб у тебя появились чувства. Ты говоришь, что хочешь быть за парнем как за стеной, но какая стена может стоять без опоры.</p>
+        <p>Я очень тебя люблю такую, какая ты есть. Прости, что я не такой xddddddddd)</p>
+      </div>
+    </div>
+
     <script src="script.js"></script>
     <script src="notes.js"></script>
+    <script src="letter.js"></script>
   </body>
 </html>
