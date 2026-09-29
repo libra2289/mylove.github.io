@@ -1064,8 +1064,8 @@ h1 {
   max-width: 150px;
   padding: 14px 16px;
   border-radius: 18px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(58, 29, 82, 0.6), rgba(16, 8, 20, 0.8));
+  border: 1px solid rgba(231, 196, 212, 0.45);
+  background: linear-gradient(180deg, rgba(107, 36, 63, 0.7), rgba(24, 6, 16, 0.88));
   color: var(--pink-soft);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 1rem;
@@ -1091,8 +1091,8 @@ h1 {
   flex-direction: column;
   padding: 18px;
   border-radius: 20px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(28, 14, 38, 0.94), rgba(8, 5, 12, 0.97));
+  border: 1px solid rgba(231, 196, 212, 0.4);
+  background: linear-gradient(180deg, rgba(64, 18, 36, 0.95), rgba(14, 4, 9, 0.98));
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   opacity: 0;
@@ -1197,8 +1197,8 @@ h1 {
 }
 
 .dq-item {
-  background: rgba(58, 29, 82, 0.25);
-  border: 1px solid rgba(231, 196, 212, 0.12);
+  background: rgba(107, 36, 63, 0.28);
+  border: 1px solid rgba(231, 196, 212, 0.14);
   border-radius: 12px;
   padding: 10px 12px;
 }
