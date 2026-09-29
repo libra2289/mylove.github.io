@@ -4,7 +4,7 @@
   // Чтобы записки ещё и присылались тебе на почту (и были видны на твоём ПК
   // независимо от устройства, с которого их написали), заведи бесплатный
   // аккаунт на https://formspree.io, создай форму и вставь её ссылку сюда:
-  const EMAIL_ENDPOINT = "https://formspree.io/f/xvkgpnko"; // например: "https://formspree.io/f/xxxxxxxx"
+  const EMAIL_ENDPOINT = "https://formspree.io/f/xvkgpnko";
 
   const toggle = document.getElementById("notesToggle");
   const panel = document.getElementById("notesPanel");

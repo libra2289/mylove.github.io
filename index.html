@@ -234,13 +234,29 @@
     <div class="letter-panel" id="letterPanel" aria-hidden="true">
       <button class="letter-close" id="letterClose" aria-label="Закрыть">✕</button>
       <div class="letter-content">
-        <p>На самом деле мне очень больно от нашего общения в переписке, особенно на данный момент. Я стараюсь, чтоб было так же все хорошо, как и было, но я не могу это делать один, я не могу разделиться на части, делать что-то, зная, что в отношениях творится такой пиздец. Я боюсь тебя потерять, ты сама это знаешь. Мне хочется с тобой ходить в звонки, играть вместе, что-то смотреть. Я рад, что у тебя появились друзья с Сашей, но наши отношения все хуже и хуже, и я даже не знаю что делать — дело во мне, или что мне надо сделать, чтоб у тебя появились чувства. Ты говоришь, что хочешь быть за парнем как за стеной, но какая стена может стоять без опоры.</p>
-        <p>Я очень тебя люблю такую, какая ты есть. Прости, что я не такой xddddddddd)</p>
+        <p>Очень сильно тебя люблю.</p>
       </div>
+    </div>
+
+    <button class="dq-toggle" id="dqToggle" type="button">
+      Вопрос дня
+    </button>
+
+    <div class="dq-panel" id="dqPanel" aria-hidden="true">
+      <div class="dq-panel-header">
+        <p>Вопрос дня</p>
+        <button class="dq-close" id="dqClose" aria-label="Закрыть">✕</button>
+      </div>
+      <p class="dq-question" id="dqQuestion"></p>
+      <textarea class="dq-textarea" id="dqTextarea" placeholder="Напиши свой ответ..."></textarea>
+      <button class="dq-save" id="dqSave" type="button">Отправить</button>
+      <p class="dq-status" id="dqStatus"></p>
+      <div class="dq-list" id="dqList"></div>
     </div>
 
     <script src="script.js"></script>
     <script src="notes.js"></script>
     <script src="letter.js"></script>
+    <script src="daily-question.js"></script>
   </body>
 </html>
