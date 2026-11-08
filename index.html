@@ -90,6 +90,19 @@
             </div>
           </div>
         </section>
+
+        <div class="next-row">
+          <div class="next-card">
+            <p class="next-label">До следующей встречи</p>
+            <p class="next-value" id="meetValue">…</p>
+            <p class="next-note">мы встречаемся в пятницу — чаще всего)</p>
+          </div>
+          <div class="next-card">
+            <p class="next-label">До нашей годовщины</p>
+            <p class="next-value" id="annivValue">…</p>
+            <p class="next-note" id="annivNote"></p>
+          </div>
+        </div>
       </header>
 
       <section class="story" aria-labelledby="story-title">
@@ -184,6 +197,36 @@
         </div>
       </section>
 
+      <section class="block goals" aria-labelledby="goals-title">
+        <h2 id="goals-title">Наши цели</h2>
+        <ul class="goals-list" id="goalsList"></ul>
+      </section>
+
+      <section class="block achievements" aria-labelledby="ach-title">
+        <h2 id="ach-title">Наши достижения</h2>
+        <div class="ach-grid" id="achGrid"></div>
+      </section>
+
+      <section class="block reasons" aria-labelledby="reasons-title">
+        <h2 id="reasons-title">Почему я тебя люблю</h2>
+        <div class="reasons-box">
+          <p class="reasons-text" id="reasonText">Нажми на кнопку ♡</p>
+          <button class="soft-btn" id="reasonBtn" type="button">Показать причину</button>
+        </div>
+      </section>
+
+      <section class="block mood" aria-labelledby="mood-title">
+        <h2 id="mood-title">Как ты сегодня?</h2>
+        <div class="mood-row" id="moodRow"></div>
+        <button class="miss-btn" id="missBtn" type="button">Скучаю ♡</button>
+        <p class="mood-status" id="moodStatus" aria-live="polite"></p>
+      </section>
+
+      <section class="block capsule" aria-labelledby="capsule-title">
+        <h2 id="capsule-title">Капсула времени</h2>
+        <div class="capsule-list" id="capsuleList"></div>
+      </section>
+
       <section class="reveal" aria-labelledby="reveal-title">
         <button class="reveal-btn" id="revealBtn" type="button">Нажми</button>
         <p class="reveal-message" id="revealMessage">Ты самая красивая и лучшая девушка на свете❦</p>
@@ -254,9 +297,12 @@
       <div class="dq-list" id="dqList"></div>
     </div>
 
+    <button class="to-top" id="toTop" type="button" aria-label="Наверх">↑</button>
+
     <script src="script.js"></script>
     <script src="notes.js"></script>
     <script src="letter.js"></script>
     <script src="daily-question.js"></script>
+    <script src="features.js"></script>
   </body>
 </html>
